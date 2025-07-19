@@ -3,6 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: 'Karasha';
+  src: url('/font/Karasha-z8mYw.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Knight Souls';
+  src: url('/font/KnightSoulsPersonalUse-BW868.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 html,
 body {
@@ -37,7 +51,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000000;
+  z-index: 10;
   padding: 3cm;
   opacity: 0.75;
   height: 100vh;
@@ -45,6 +59,8 @@ body {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
 }
+
+
 
 section {
   height: 100vh;
@@ -74,6 +90,36 @@ h3 {
 .home h1 {
   font-size: 80px;
   margin-bottom: 1.5rem;
+  font-family: 'Karasha', sans-serif;
+}
+.home h3{
+  font-family: poppins, sans-serif;
+}
+.lottie-wrapper {
+  position: absolute;
+  right: 0;
+  padding-right: 150px;
+  padding-top: 250px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 600px) {
+  .lottie-wrapper {
+    position: static;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .lottie-wrapper dotlottie-wc {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
 }
 
 .downlodecv {
@@ -126,6 +172,23 @@ section p {
   color: #d2d2d2;
   line-height: 1.6;
 }
+@media screen and (max-width: 600px) {
+  .container {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  section {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 20px;
+    scroll-snap-align: none;
+  }
+  .container {
+    padding: 20px 10px;
+  }
+}
+
 .contact {
   display: flex;
   flex-direction: column;
@@ -133,6 +196,10 @@ section p {
   justify-content: center;
   height: 100vh;
   width: 100%;
+}
+.contact h2{
+    font-family: 'Knight Souls', sans-serif;
+
 }
 
 .contact form {
@@ -173,44 +240,281 @@ section p {
   background-color: #ffffff25;
   transform: scale(1.03);
 }
-.about {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.contact h2 {
+  font-size: 50px;
+}
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 100px auto;
+}
+.timelinecon {
+  padding: 10px 50px;
+  position: relative;
+  width: 50%;
+  opacity: 0;
+  transform: translateY(60px) scale(0.6);
+  animation: movedownScaleFade 1s ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+  z-index: 1;
 }
 
-.about-box {
+.left-container {
+  left: 0;
+}
+
+.right-container {
+  left: 50%;
+}
+
+@keyframes movedownScaleFade {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.6);
+  }
+  50% {
+    opacity: 0.05;
+    transform: translateY(30px) scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.text-box {
+  padding: 20px 30px;
   background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 30px;
-  padding: 40px;
-  max-width: 800px;
-  width: 90%;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid #fff;
+  position: relative;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.left-container {
+  left: 0;
+}
+.right-container {
+  left: 50%;
+}
+.timelinecon img {
+  position: absolute;
+  width: 40px;
+  border-radius: 50%;
+  right: -20px;
+  top: 32px;
+  z-index: 10;
 }
 
-.about-box h2 {
-  font-size: 50px;
-  margin-bottom: 20px;
-  background: linear-gradient(to top, #cecece 0%, #ffffff 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  width: 100%;
+.right-container img {
+  left: -20px;
+}
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: #fff;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  animation: moveline 6s linear forwards;
 }
 
-.about-box p {
-  font-size: 21px;
-  color: #d2d2d2;
-  line-height: 1.6;
+@keyframes moveline {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
 }
-.contact 
-h2{
-  font-size: 50px;
+.text-box small {
+  display: inline-block;
+  margin-bottom: 15px;
 }
+.left-container-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 28px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #fff;
+  right: -15px;
+}
+.right-container-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 28px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #fff;
+  left: -15px;
+}
+.text-box h2,
+.text-box small,
+.text-box p {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  color: rgb(240, 238, 238);
+}
+.text-box p {
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+  color: #f3f3f3;
+}
+.text-box h2{
+  font-family: 'Knight Souls', sans-serif;
+}
+@media screen and (max-width: 600px) {
+  .timeline {
+    margin: 40px auto;
+    padding: 0 15px;
+    position: relative;
+  }
+
+  .timeline::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #fff;
+    z-index: 0;
+  }
+
+  .timelinecon {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(80px) scale(0.5);
+    animation: movedownScaleFade 1s ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  .timelinecon:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  .timelinecon:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .text-box {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #f3f3f3;
+    background-color: rgba(255, 255, 255, 0.06);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    position: relative;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  }
+
+  .text-box small {
+    display: block;
+    margin-bottom: 8px;
+    color: #aaa;
+    font-size: 12px;
+  }
+
+  .left-container,
+  .right-container {
+    left: 0;
+    width: 100%;
+    padding: 0;
+    position: relative;
+  }
+
+  .left-container img,
+  .right-container img {
+    position: absolute;
+    left: -40px;
+    top: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(168, 85, 247, 0.4);
+  }
+
+  .left-container-arrow,
+  .right-container-arrow {
+    display: none;
+  }
+}
+@keyframes movedownScaleFade {
+  0% {
+    opacity: 0;
+    transform: translateY(80px) scale(0.5);
+  }
+  50% {
+    opacity: 0.1;
+    transform: translateY(40px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.skills {
+  padding-top: 60px;
+  text-align: center;
+  justify-items: center;
+}
+
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: transform 0.3s ease;
+}
+
+.skill img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+
+  mix-blend-mode: multiply;
+  background: transparent;
+}
+
+.skill span {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.skill:hover img {
+  transform: scale(1.15);
+}
+#skills h2 {
+  font-family: 'Knight Souls', sans-serif;
+}
+
