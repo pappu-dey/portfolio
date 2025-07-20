@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pappu Dey</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
@@ -13,7 +19,6 @@
   <body>
     <canvas id="background-canvas"></canvas>
     <div class="glassy-overlay"></div>
-   
 
     <div class="container">
       <section id="home" class="home">
@@ -92,12 +97,28 @@
           src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js"
           type="module"
         ></script>
+        <div class="scroll-down-arrow">
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <polyline points="19 12 12 19 5 12" />
+          </svg>
+        </div>
       </section>
 
       <section id="education" class="education">
+        <h2 class="education-heading">Education</h2>
         <div class="timeline">
           <div class="timelinecon left-container">
-            <img src="/image/hs.png" alt="Higher Secondary logo" />
+            <img src="/image/hs.webp" alt="Higher Secondary logo" />
             <div class="text-box">
               <h2>Higher secoundary</h2>
               <small>2019 - 2021</small>
@@ -109,7 +130,7 @@
             </div>
           </div>
           <div class="timelinecon right-container">
-            <img src="/image/wbsctve.png" alt="WBSCTE logo" />
+            <img src="/image/wbsctve.webp" alt="WBSCTE logo" />
             <div class="text-box">
               <h2>Diploma</h2>
               <small>2021 - 2024</small>
@@ -121,7 +142,7 @@
             </div>
           </div>
           <div class="timelinecon left-container">
-            <img src="/image/narula.png" alt="Higher Secondary logo" />
+            <img src="/image/narula.webp" alt="Higher Secondary logo" />
             <div class="text-box">
               <h2>B Tech</h2>
               <small>2024 - pursuing</small>
@@ -137,46 +158,127 @@
 
       <section id="skills" class="skills">
         <h2>Skills</h2>
-        <div class="skills-row">
-          <div class="skill">
-            <img src="/image/html.png" alt="HTML logo" loading="lazy" />
-            <span>HTML</span>
-          </div>
-          <div class="skill">
-            <img src="/image/css.png" alt="CSS logo" loading="lazy" />
-            <span>CSS</span>
-          </div>
-          <div class="skill">
-            <img src="/image/js.png" alt="JavaScript logo" loading="lazy" />
+        <div class="scroll" style="--time: 20s">
+          <div>
+            <span>Html</span>
+            <span>Css</span>
             <span>JavaScript</span>
-          </div>
-          <div class="skill">
-            <img src="/image/react.png" alt="React logo" loading="lazy" />
-            <span>React</span>
-          </div>
-          <div class="skill">
-            <img src="/image/java.png" alt="Java logo" loading="lazy" />
             <span>Java</span>
-          </div>
-          <div class="skill">
-            <img src="/image/python.png" alt="Python logo" loading="lazy" />
             <span>Python</span>
-          </div>
-          <div class="skill">
-            <img
-              src="/image/andst.png"
-              alt="Android Studio logo"
-              loading="lazy"
-            />
-            <span>Android Studio</span>
-          </div>
-          <div class="skill">
-            <img src="/image/sql.png" alt="SQL logo" loading="lazy" />
-            <span>SQL</span>
-          </div>
-          <div class="skill">
-            <img src="/image/firebase.png" alt="firebase logo" loading="lazy" />
+            <span>React</span>
             <span>Firebase</span>
+            <span>Android Studio</span>
+            <span>Sql</span>
+          </div>
+          <div>
+            <span>Html</span>
+            <span>Css</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>Python</span>
+            <span>React</span>
+            <span>Firebase</span>
+            <span>Android Studio</span>
+            <span>Sql</span>
+          </div>
+        </div>
+        <div class="scroll" style="--time: 30s">
+          <div>
+            <span>Html</span>
+            <span>Css</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>Python</span>
+            <span>React</span>
+            <span>Firebase</span>
+            <span>Android Studio</span>
+            <span>Sql</span>
+          </div>
+
+          <div>
+            <span>Html</span>
+            <span>Css</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>Python</span>
+            <span>React</span>
+            <span>Firebase</span>
+            <span>Android Studio</span>
+            <span>Sql</span>
+          </div>
+        </div>
+        <div class="scroll" style="--time: 25s">
+          <div>
+            <span>Html</span>
+            <span>Css</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>Python</span>
+            <span>React</span>
+            <span>Firebase</span>
+            <span>Android Studio</span>
+            <span>Sql</span>
+          </div>
+
+          <div>
+            <span>Html</span>
+            <span>Css</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>Python</span>
+            <span>React</span>
+            <span>Firebase</span>
+            <span>Android Studio</span>
+            <span>Sql</span>
+          </div>
+        </div>
+        <div class="scroll" style="--time: 40s">
+          <div>
+            <span>Html</span>
+            <span>Css</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>Python</span>
+            <span>React</span>
+            <span>Firebase</span>
+            <span>Android Studio</span>
+            <span>Sql</span>
+          </div>
+
+          <div>
+            <span>Html</span>
+            <span>Css</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>Python</span>
+            <span>React</span>
+            <span>Firebase</span>
+            <span>Android Studio</span>
+            <span>Sql</span>
+          </div>
+        </div>
+        <div class="scroll imgbox" style="--time: 25s">
+          <div>
+            <img src="/image/html.webp" alt="html logo" />
+            <img src="/image/css.webp" alt="Css logo" />
+            <img src="/image/Js.webp" alt="JavaScript logo" />
+            <img src="/image/react.webp" alt="React logo" />
+            <img src="/image/firebase.webp" alt="Firebase logo" />
+            <img src="/image/python.webp" alt="Python logo" />
+            <img src="/image/java.webp" alt="Java logo" />
+            <img src="/image/andst.webp" alt="Android studio logo" />
+            <img src="/image/sql.webp" alt="Sql logo" />
+          </div>
+          <div>
+            <img src="/image/html.webp" alt="html logo" />
+            <img src="/image/css.webp" alt="Css logo" />
+            <img src="/image/Js.webp" alt="JavaScript logo" />
+            <img src="/image/react.webp" alt="React logo" />
+            <img src="/image/firebase.webp" alt="Firebase logo" />
+            <img src="/image/python.webp" alt="Python logo" />
+            <img src="/image/java.webp" alt="Java logo" />
+            <img src="/image/andst.webp" alt="Android studio logo" />
+            <img src="/image/sql.webp" alt="Sql logo" />
           </div>
         </div>
       </section>
