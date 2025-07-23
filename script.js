@@ -98,3 +98,28 @@ function setupCanvas() {
 }
 
 
+const imagesToPreload = [
+"/image/html.webp",
+  "/image/css.webp",
+  "/image/js.webp",
+  "/image/react.webp",
+  "/image/firebase.webp",
+  "/image/python.webp",
+  "/image/java.webp",
+  "/image/android_studio.webp",
+  "/image/sql.webp",
+  
+];
+
+function preloadImages(imagePaths) {
+  imagePaths.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+    const preloadDiv = document.getElementById("preload-images");
+    if (preloadDiv) {
+      preloadDiv.appendChild(img);
+    }
+  });
+}
+
+preloadImages(imagesToPreload);
