@@ -247,6 +247,16 @@ section p {
 .contact h2 {
   font-family: "Knight Souls", sans-serif;
 }
+.contact h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 6px auto 0;
+  background-color: #a855f7;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
 
 .contact form {
   display: flex;
@@ -577,6 +587,16 @@ section p {
   max-width: 1200px;
   margin: 0 auto;
 }
+.skills h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 6px auto 0;
+  background-color: #a855f7;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
 
 .skills {
   display: flex;
@@ -726,6 +746,17 @@ width: 700px;
   }
 }
 
+.projects .project-heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 6px auto 0;
+  background-color: #a855f7;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
+
 .project-card {
   display: flex;
   background: rgba(255, 255, 255, 0.1);
@@ -807,15 +838,16 @@ width: 700px;
 }
 
 .project-text h2 {
-  font-family: "Knight Souls", sans-serif;
+  font-family: "Emerland-serif", sans-serif;
   font-size: 20px;
   color: #fff;
+  
   margin-bottom: 5px;
 }
 
 .project-text p {
   font-family: "Source Code Pro", monospace;
-  font-size: 13px;
+  font-size: 14px;
   margin: 2px 0;
   stroke: #0b1299;
   stroke-width: 5px;
@@ -921,4 +953,190 @@ width: 700px;
 .btn:hover::after {
   transform: translateX(4px);
   opacity: 1;
+}
+:root {
+  --cert-time: 30s;
+}
+
+.certifications {
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  overflow: hidden;
+}
+
+.certifications h2 {
+  font-family: "Knight Souls", sans-serif;
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.certifications h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 6px auto 0;
+  background-color: #a855f7;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
+
+.cert-scroll {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0;
+  mask-image: linear-gradient(90deg, transparent, #fff 10%, #fff 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #fff 10%, #fff 90%, transparent);
+}
+
+.cert-track {
+  display: flex;
+  white-space: nowrap;
+  animation: cert-scroll var(--cert-time) linear infinite;
+  will-change: transform;
+  gap: 4rem;
+}
+
+@keyframes cert-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.cert-card {
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid #a855f7;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.1);
+  width: 45%;         /* Show 2 cards per screen */
+  padding: 0 10px;     /* Add internal spacing */
+  flex-shrink: 0;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.cert-card:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 20px rgba(168, 85, 247, 0.4),
+    0 0 40px rgba(168, 85, 247, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cert-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, transparent 80%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cert-card:hover::before {
+  opacity: 1;
+}
+
+.cert-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.cert-card:hover .cert-img {
+  transform: scale(1.03);
+}
+
+.cert-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(15, 15, 40, 0.95);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 20px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  font-family: "Source Code Pro", monospace;
+  z-index: 2;
+  border-top: 1px solid #a855f7;
+  text-align: center;
+}
+
+.cert-card:hover .cert-info {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.cert-info h3 {
+  font-family: "Knight Souls", sans-serif;
+  font-size: 18px;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.cert-info p {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+.cert-info .view-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  background-color: #a855f7;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Source Code Pro", monospace;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cert-info .view-btn:hover {
+  background-color: #9333ea;
+  transform: scale(1.05);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .cert-card {
+    width: 100%;
+  }
+
+  .certifications h2 {
+    font-size: 2.2rem;
+  }
+
+  .cert-info h3 {
+    font-size: 16px;
+  }
+
+  .cert-info p {
+    font-size: 13px;
+  }
 }
