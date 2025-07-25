@@ -1267,3 +1267,8 @@ a:hover {
 }
 
 
+@media (max-width: 768px) {
+  .lottie-wrapper {
+    display: none !important;
+  }
+}
