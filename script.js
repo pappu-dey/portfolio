@@ -132,3 +132,24 @@ preloadImages(imagesToPreload);
 
 
 
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const toggleIcon = document.getElementById("toggle-icon");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+
+    if (navLinks.classList.contains("active")) {
+      toggleIcon.src = "/image/swords.webp"; // your cross icon
+    } else {
+      toggleIcon.src = "/image/manu.webp"; // your menu icon
+    }
+  });
+
+  // Optional: close menu after clicking a link (on mobile)
+  document.querySelectorAll("#nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      toggleIcon.src = "/image/manu.webp";
+    });
+  });
