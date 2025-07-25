@@ -108,7 +108,13 @@ const imagesToPreload = [
   "/image/java.webp",
   "/image/android_studio.webp",
   "/image/sql.webp",
-  
+  "/image/tick_tac_toe.webp",
+  "/image/calculator.webp",
+  "/image/news.webp",
+  "/image/bmical.webp",
+  "/image/ardent.webp",
+  "/image/deamz.webp",
+  "/image/pomnptl.webp",
 ];
 
 function preloadImages(imagePaths) {
