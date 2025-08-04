@@ -97,9 +97,8 @@ function setupCanvas() {
   canvas.height = window.innerHeight;
 }
 
-
 const imagesToPreload = [
-"/image/html.webp",
+  "/image/html.webp",
   "/image/css.webp",
   "/image/js.webp",
   "/image/react.webp",
@@ -130,26 +129,41 @@ function preloadImages(imagePaths) {
 
 preloadImages(imagesToPreload);
 
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+const toggleIcon = document.getElementById("toggle-icon");
 
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  if (navLinks.classList.contains("active")) {
+    toggleIcon.src = "/image/swords.webp";
+  } else {
+    toggleIcon.src = "/image/manu.webp";
+  }
+});
 
-  const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-  const toggleIcon = document.getElementById("toggle-icon");
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+}, false);
 
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+document.addEventListener("keydown", function (e) {
+  if (e.key === "F12") {
+    e.preventDefault();
+  }
 
-    if (navLinks.classList.contains("active")) {
-      toggleIcon.src = "/image/swords.webp"; // your cross icon
-    } else {
-      toggleIcon.src = "/image/manu.webp"; // your menu icon
-    }
-  });
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'i') {
+    e.preventDefault();
+  }
 
-  // Optional: close menu after clicking a link (on mobile)
-  document.querySelectorAll("#nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("active");
-      toggleIcon.src = "/image/manu.webp";
-    });
-  });
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'c') {
+    e.preventDefault();
+  }
+
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'j') {
+    e.preventDefault();
+  }
+
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') {
+    e.preventDefault();
+  }
+});
