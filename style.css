@@ -461,8 +461,8 @@ section p {
     padding: 0 10px;
     display: flex;
     flex-direction: column;
-    gap: 16px; /* একটু বেশি gap দিলে clear দেখাবে */
-    align-items: flex-start; /* সব বক্স বামে align হবে */
+    gap: 16px; 
+    align-items: flex-start; 
   }
 
   .timeline::after {
@@ -471,14 +471,14 @@ section p {
 
   .timelinecon {
     width: 100%;
-    margin: 0; /* সব margin সরিয়ে দিলাম */
+    margin: 0; 
     padding: 0; 
     opacity: 1;
     transform: none;
     animation: none;
     box-sizing: border-box;
     display: flex;
-    justify-content: flex-start; /* সবকিছু বামে থাকবে */
+    justify-content: flex-start; 
   }
 
   .text-box {
@@ -492,7 +492,7 @@ section p {
     border: 1px solid #ccc;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
-    margin: 0; /* text-box একই লেভেলে শুরু হবে */
+    margin: 0; 
   }
 
   .left-container img,
