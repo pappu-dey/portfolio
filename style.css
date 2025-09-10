@@ -457,39 +457,41 @@ section p {
 }
 @media screen and (max-width: 600px) {
   .timeline {
-    margin: 20px auto;
-    padding: 0 15px;
+    margin: 10px auto;
+    padding: 0 10px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px; 
+    align-items: stretch; 
   }
 
-  /* Remove vertical line */
   .timeline::after {
     display: none;
   }
 
   .timelinecon {
-    width: 100%;
+    width: 100%; 
     margin: 0;
-    padding: 15px;
-    opacity: 1; /* make visible directly */
+    padding: 12px;
+    opacity: 1;
     transform: none;
-    animation: none; /* disable animations */
+    animation: none;
+    box-sizing: border-box; 
   }
 
   .text-box {
+    width: 100%; 
     font-size: 14px;
     line-height: 1.6;
     color: #f3f3f3;
     background-color: rgba(255, 255, 255, 0.08);
-    padding: 15px;
+    padding: 12px; 
     border-radius: 10px;
     border: 1px solid #ccc;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box; 
   }
 
-  /* Remove images and arrows */
   .left-container img,
   .right-container img,
   .left-container-arrow,
