@@ -1,66 +1,65 @@
+// ====================== Canvas Trail Effect ======================
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
-let mouceMoved = false;
+let mouseMoved = false;
 
 const pointer = {
-  x: 0.5 * window.innerWidth,
-  y: 0.5 * window.innerHeight,
+  x: window.innerWidth * 0.5,
+  y: window.innerHeight * 0.5,
 };
 
 const params = {
   pointsNumber: 40,
   widthFactor: 10,
-  mouceThreshold: 0.5,
   spring: 0.25,
   friction: 0.5,
 };
 
-const trail = new Array(params.pointsNumber);
-for (let i = 0; i < params.pointsNumber; i++) {
-  trail[i] = {
-    x: pointer.x,
-    y: pointer.y,
-    dx: 0,
-    dy: 0,
-  };
+const trail = Array.from({ length: params.pointsNumber }, () => ({
+  x: pointer.x,
+  y: pointer.y,
+  dx: 0,
+  dy: 0,
+}));
+
+function updateMousePosition(x, y) {
+  pointer.x = x;
+  pointer.y = y;
 }
 
-window.addEventListener("click", (e) => {
-  updateMoucePosition(e.pageX, e.pageY);
-});
+window.addEventListener("click", (e) => updateMousePosition(e.pageX, e.pageY));
 window.addEventListener("mousemove", (e) => {
-  mouceMoved = true;
-  updateMoucePosition(e.pageX, e.pageY);
+  mouseMoved = true;
+  updateMousePosition(e.pageX, e.pageY);
 });
 window.addEventListener("touchmove", (e) => {
-  mouceMoved = true;
-  updateMoucePosition(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
+  mouseMoved = true;
+  updateMousePosition(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
 });
 
-function updateMoucePosition(eX, eY) {
-  pointer.x = eX;
-  pointer.y = eY;
+function setupCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
 
-setupCanvas();
-update(0);
-window.addEventListener("resize", setupCanvas);
-
 function update(t) {
-  if (!mouceMoved) {
+  if (!mouseMoved) {
+    // idle animation if no mouse movement
     pointer.x =
       (0.5 + 0.3 * Math.cos(0.002 * t) * Math.sin(0.005 * t)) *
       window.innerWidth;
     pointer.y =
       (0.5 + 0.2 * Math.cos(0.005 * t) + 0.1 * Math.cos(0.01 * t)) *
-      window.innerWidth;
+      window.innerHeight;
   }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  trail.forEach((p, pIdx) => {
-    const prev = pIdx === 0 ? pointer : trail[pIdx - 1];
-    const spring = pIdx === 0 ? 0.4 * params.spring : params.spring;
+
+  // update trail points
+  trail.forEach((p, i) => {
+    const prev = i === 0 ? pointer : trail[i - 1];
+    const spring = i === 0 ? params.spring * 0.4 : params.spring;
     p.dx += (prev.x - p.x) * spring;
     p.dy += (prev.y - p.y) * spring;
     p.dx *= params.friction;
@@ -69,7 +68,8 @@ function update(t) {
     p.y += p.dy;
   });
 
-  var gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+  // gradient line
+  const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
   gradient.addColorStop(0, "rgba(160,93,134,1)");
   gradient.addColorStop(1, "rgba(57,34,115,1)");
 
@@ -89,14 +89,14 @@ function update(t) {
   ctx.lineTo(trail[trail.length - 1].x, trail[trail.length - 1].y);
   ctx.stroke();
 
-  window.requestAnimationFrame(update);
+  requestAnimationFrame(update);
 }
 
-function setupCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
+setupCanvas();
+update(0);
+window.addEventListener("resize", setupCanvas);
 
+// ====================== Image Preloading ======================
 const imagesToPreload = [
   "/image/html.webp",
   "/image/css.webp",
@@ -117,53 +117,57 @@ const imagesToPreload = [
 ];
 
 function preloadImages(imagePaths) {
+  const preloadDiv = document.getElementById("preload-images");
+  if (!preloadDiv) return;
+
   imagePaths.forEach((src) => {
     const img = new Image();
     img.src = src;
-    const preloadDiv = document.getElementById("preload-images");
-    if (preloadDiv) {
-      preloadDiv.appendChild(img);
-    }
+    preloadDiv.appendChild(img);
   });
 }
 
 preloadImages(imagesToPreload);
 
+// ====================== Navigation Menu ======================
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 const toggleIcon = document.getElementById("toggle-icon");
 
 menuToggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
-  if (navLinks.classList.contains("active")) {
-    toggleIcon.src = "/image/swords.webp";
-  } else {
-    toggleIcon.src = "/image/manu.webp";
-  }
+  toggleIcon.src = navLinks.classList.contains("active")
+    ? "/image/swords.webp"
+    : "/image/manu.webp";
 });
 
-document.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-}, false);
+// Close menu after clicking a link (mobile fix)
+navLinks.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    toggleIcon.src = "/image/manu.webp"; // reset to hamburger
+  });
+});
 
-document.addEventListener("keydown", function (e) {
-  if (e.key === "F12") {
-    e.preventDefault();
-  }
+// ====================== Disable Right-Click & Shortcuts ======================
+document.addEventListener("contextmenu", (e) => e.preventDefault());
 
-  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'i') {
-    e.preventDefault();
-  }
+document.addEventListener("keydown", (e) => {
+  const blocked = [
+    { key: "F12" },
+    { key: "i", ctrl: true, shift: true },
+    { key: "c", ctrl: true, shift: true },
+    { key: "j", ctrl: true, shift: true },
+    { key: "u", ctrl: true },
+  ];
 
-  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'c') {
-    e.preventDefault();
-  }
-
-  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'j') {
-    e.preventDefault();
-  }
-
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') {
-    e.preventDefault();
-  }
+  blocked.forEach((b) => {
+    if (
+      e.key.toLowerCase() === b.key.toLowerCase() &&
+      (!!b.ctrl === (e.ctrlKey || e.metaKey)) &&
+      (!!b.shift === e.shiftKey)
+    ) {
+      e.preventDefault();
+    }
+  });
 });
