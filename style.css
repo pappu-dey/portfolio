@@ -461,8 +461,8 @@ section p {
     padding: 0 10px;
     display: flex;
     flex-direction: column;
-    gap: 12px; 
-    align-items: stretch; 
+    gap: 16px; /* একটু বেশি gap দিলে clear দেখাবে */
+    align-items: flex-start; /* সব বক্স বামে align হবে */
   }
 
   .timeline::after {
@@ -470,13 +470,15 @@ section p {
   }
 
   .timelinecon {
-    width: 100%; 
-    margin: 0;
-    padding: 12px;
+    width: 100%;
+    margin: 0; /* সব margin সরিয়ে দিলাম */
+    padding: 0; 
     opacity: 1;
     transform: none;
     animation: none;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start; /* সবকিছু বামে থাকবে */
   }
 
   .text-box {
@@ -489,7 +491,8 @@ section p {
     border-radius: 10px;
     border: 1px solid #ccc;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    margin: 0; /* text-box একই লেভেলে শুরু হবে */
   }
 
   .left-container img,
@@ -500,20 +503,6 @@ section p {
   }
 }
 
-@keyframes movedownScaleFade {
-  0% {
-    opacity: 0;
-    transform: translateY(80px) scale(0.5);
-  }
-  50% {
-    opacity: 0.1;
-    transform: translateY(40px) scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
 #skills h2 {
   font-family: "Knight Souls", sans-serif;
 }
