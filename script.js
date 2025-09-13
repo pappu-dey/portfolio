@@ -149,7 +149,7 @@ navLinks.querySelectorAll("a").forEach((link) => {
   });
 });
 
-// ====================== Disable Right-Click & Shortcuts ======================
+//====================== Disable Right-Click & Shortcuts ======================
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 
 document.addEventListener("keydown", (e) => {
