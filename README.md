@@ -1,32 +1,16 @@
-<!-- Typing Animation -->
-<h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=36BCF7&center=true&vCenter=true&width=700&lines=Pappu+Dey's+Portfolio+🌐;Frontend+Developer+💻;Android+Developer+📱;React+Native+Enthusiast+⚛️;Creative+Coder+🎨;Always+Learning+🚀" alt="Typing SVG" />
-</h1>
+# React + Vite
 
-<!-- Banner -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/halfrost/halfrost/master/icons/header_.png" alt="banner" width="100%"/>
-</p>
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
----
+Currently, two official plugins are available:
 
-## 📌 Overview
-This is my **personal portfolio website** built to showcase my skills, projects, and achievements as a developer.  
-It is designed to be **responsive, fast, and user-friendly**.  
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-🔗 **Live Website:** [iampappu.netlify.app](https://iampappu.netlify.app)
+## React Compiler
 
----
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 🚀 Features
-- 🖼️ Modern responsive design  
-- 📂 Projects showcase section  
-- 🧑‍💻 Skills section  
-- 📬 Contact options with social links  
-- ⚡ Smooth UI animations  
+## Expanding the Oxlint configuration
 
----
-
-
-
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
