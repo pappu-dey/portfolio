@@ -1,9 +1,9 @@
 import { useScrollReveal } from '../hooks/useScrollAnimation';
 
 export default function About() {
-  const heyRef    = useScrollReveal();
-  const photoRef  = useScrollReveal({ rootMargin: '0px 0px -40px 0px' });
-  const textRef   = useScrollReveal({ rootMargin: '0px 0px -40px 0px' });
+  const heyRef = useScrollReveal();
+  const photoRef = useScrollReveal({ rootMargin: '0px 0px -40px 0px' });
+  const textRef = useScrollReveal({ rootMargin: '0px 0px -40px 0px' });
 
   return (
     <section id="about" className="about">
@@ -13,7 +13,7 @@ export default function About() {
       {/* Center: Photo */}
       <div className="about-photo-wrapper reveal-up" ref={photoRef}>
         <div className="about-photo">
-          <img src="/image/narula.webp" alt="Pappu Dey" />
+          <img src="/image/pappu.png" alt="Pappu Dey" />
         </div>
       </div>
 
