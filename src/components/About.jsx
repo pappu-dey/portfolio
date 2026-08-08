@@ -13,7 +13,7 @@ export default function About() {
       {/* Center: Photo */}
       <div className="about-photo-wrapper reveal-up" ref={photoRef}>
         <div className="about-photo">
-          <img src="/image/pappu.png" alt="Pappu Dey" />
+          <img src="/image/pappu.webp" alt="Pappu Dey" />
         </div>
       </div>
 
