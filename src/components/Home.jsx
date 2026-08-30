@@ -2,14 +2,11 @@ export default function Home() {
   return (
     <section id="home" className="home">
       <h1>
-        Hi,<br />
-        I am <br />
         <span className="typewriter">Pappu Dey</span>
       </h1>
-      <h3>
-        A passionate Android &amp; Web Developer,<br />
-        turning ideas into elegant digital experiences.
-      </h3>
+      <h2 className="hero-role">
+        ANDROID &amp; WEB DEVELOPER
+      </h2>
 
       <div className="button-group">
         <a
@@ -46,15 +43,7 @@ export default function Home() {
         </a>
       </div>
 
-      <div className="lottie-wrapper">
-        <dotlottie-wc
-          src="https://lottie.host/7585797f-5e92-4411-b450-6ec67f3cf4bc/bhqwT9dNE5.lottie"
-          style={{ width: '700px', height: '700px' }}
-          speed="1"
-          autoplay
-          loop
-        />
-      </div>
+
 
       <div className="scroll-down-arrow">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

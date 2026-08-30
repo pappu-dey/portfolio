@@ -43,22 +43,22 @@ export default function Hero() {
 
       {/* Giant title — word-by-word reveal */}
       <div className="hero-title-block">
+        {/* Name line */}
+        <p className="hero-name">
+          <span className="word-wrap" style={{ '--word-index': 0 }}>
+            <span className="word-inner">Pappu Dey</span>
+          </span>
+        </p>
+
         <h1 className="hero-title">
-          {/* Line 1: ANDROID & [photo] WEB */}
+          {/* Line 1: ANDROID & WEB */}
           <span className="hero-line">
-            <span className="word-wrap" style={{ '--word-index': 0 }}>
+            <span className="word-wrap" style={{ '--word-index': 1 }}>
               <span className="word-inner">ANDROID</span>
             </span>
             {' '}
-            <span className="word-wrap" style={{ '--word-index': 1 }}>
+            <span className="word-wrap" style={{ '--word-index': 2 }}>
               <span className="word-inner">&amp;</span>
-            </span>
-            {' '}
-            {/* Photo inset sits between & and WEB */}
-            <span className="hero-photo-inset word-wrap" style={{ '--word-index': 2 }}>
-              <span className="word-inner" style={{ display: 'block', height: '100%' }}>
-                <img src="/image/student.png" alt="Pappu Dey" />
-              </span>
             </span>
             {' '}
             <span className="word-wrap" style={{ '--word-index': 3 }}>
